@@ -10,7 +10,7 @@ export default function CommunityPage() {
   return (
     <main id="main">
       <PageIntro
-        image={{ name: "community-desktop", alt: "A smiling CTC athlete training on red bars with the Chicago skyline behind her" }}
+        image={{ name: "people-hero", alt: "A CTC member wearing a Chicago Training Club shirt beside athletes practicing on red outdoor bars" }}
         caption="The people make the practice."
         action={{ href: "#community-gallery", label: "Meet the community" }}
         eyebrow="03 / The people"

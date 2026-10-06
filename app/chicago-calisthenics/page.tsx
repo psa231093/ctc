@@ -15,7 +15,7 @@ export default function TrainingPage() {
   return (
     <main id="main">
       <PageIntro
-        image={{ name: "training-desktop", alt: "A CTC athlete practicing a strength hold on outdoor red bars" }}
+        image={{ name: "training-hero", alt: "A CTC athlete hanging from a red calisthenics bar with Chicago buildings behind her" }}
         caption="Strength. Balance. Your next step."
         action={{ href: "#sessions", label: "Explore the training" }}
         eyebrow="02 / Find your practice"
