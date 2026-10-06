@@ -114,7 +114,7 @@ export default function Home() {
           <span className="outline-text">JUST EFFORT.</span>
           <Star />
         </div>
-        <div className="manifesto-aside">
+        <div className="manifesto-aside" data-kinetic>
           <Label number="01">The club</Label>
           <figure className="manifesto-main-photo">
             <Photo

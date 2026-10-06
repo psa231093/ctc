@@ -2865,3 +2865,13 @@ html {
 .full-film-dialog video { display:block; width:100%; flex:1; min-height:0; object-fit:contain; }
 .full-film-dialog > p { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 20px calc(16px + env(safe-area-inset-bottom)); font-size:9px; }
 .film-controls .full-film-trigger { min-width:0; padding:0 14px; }
+
+@media(max-width:700px) and (prefers-reduced-motion:no-preference) {
+ .manifesto-remix .manifesto-aside { --photo-arrival:clamp(0,calc(var(--section-progress,0) * 2),1); }
+ .manifesto-remix .manifesto-main-photo {
+   transform:translateX(calc((1 - var(--photo-arrival)) * -95px)) rotate(calc(-9deg + var(--photo-arrival) * 4deg));
+ }
+ .manifesto-remix .manifesto-inset-photo {
+   transform:translateX(calc((1 - var(--photo-arrival)) * 95px)) rotate(calc(11deg - var(--photo-arrival) * 5deg));
+ }
+}
