@@ -25,3 +25,5 @@ Mobile club group photo supplied by the owner on October 6, 2026. Optimized as c
 People and training hero photos supplied by the owner on October 6, 2026. Optimized as people-hero and training-hero WebP variants at 480, 900 and 1440px, preserving the full portrait framing.
 
 Breakthrough mobile photo supplied by the owner on October 6, 2026; responsive WebP at 480, 900 and 1440px. Used only below 701px in the research training section, within the original image frame.
+
+Performance pass: AVIF variants alongside all existing WebP assets, with 640px and 720px candidates for standard photos and responsive film posters. Generate with scripts/optimize-avif.py using Pillow with AVIF support. WebP remains the fallback. Natural image dimensions are recorded in lib/image-dimensions.json.

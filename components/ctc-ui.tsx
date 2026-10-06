@@ -1,4 +1,5 @@
 import { club } from "@/lib/ctc";
+import imageDimensions from "@/lib/image-dimensions.json";
 export function Arrow({
   diagonal = false,
   className = "",
@@ -37,34 +38,19 @@ export function Star({ className = "" }: { className?: string }) {
     </svg>
   );
 }
-export function Photo({
-  name,
-  alt,
-  className = "",
-  priority = false,
-  sizes = "(max-width: 700px) 100vw, 50vw",
-}: {
-  name: string;
-  alt: string;
-  className?: string;
-  priority?: boolean;
-  sizes?: string;
+export function Photo({ name, alt, className = "", priority = false, sizes = "(max-width: 700px) 100vw, 50vw", mobile }: {
+  name: string; alt: string; className?: string; priority?: boolean; sizes?: string;
+  mobile?: { name: string; widths?: number[] };
 }) {
+  const dimensions = imageDimensions[name as keyof typeof imageDimensions];
+  const srcset = (asset: string, widths: number[], format: string) => widths.map(width => `/images/${asset}-${width}.${format} ${width}w`).join(", ");
   return (
-    <img
-      className={`photo ${className}`}
-      src={`/images/${name}-900.webp`}
-      srcSet={[480, 900, 1440]
-        .map((w) => `/images/${name}-${w}.webp ${w}w`)
-        .join(", ")}
-      sizes={sizes}
-      alt={alt}
-      width="1440"
-      height="1800"
-      loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : "auto"}
-      decoding="async"
-    />
+    <picture className="responsive-photo">
+      {mobile && <source media="(max-width: 700px)" type="image/avif" srcSet={srcset(mobile.name, mobile.widths || [480, 900, 1440], "avif")} sizes={sizes} />}
+      {mobile && <source media="(max-width: 700px)" type="image/webp" srcSet={srcset(mobile.name, mobile.widths || [480, 900, 1440], "webp")} sizes={sizes} />}
+      <source type="image/avif" srcSet={srcset(name, [480, 640, 720, 900, 1440], "avif")} sizes={sizes} />
+      <img className={`photo ${className}`} src={`/images/${name}-900.webp`} srcSet={srcset(name, [480, 900, 1440], "webp")} sizes={sizes} alt={alt} width={dimensions?.width || 1440} height={dimensions?.height || 1800} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" />
+    </picture>
   );
 }
 export function ButtonLink({
@@ -171,7 +157,7 @@ export function Footer() {
           </a>
           <a href="/join">Get in touch</a>
         </div>
-        <span className="footer-stars" aria-label="Made for Chicago">
+        <span className="footer-stars" role="img" aria-label="Made for Chicago">
           <Star />
           <Star />
           <Star />
@@ -182,9 +168,11 @@ export function Footer() {
   );
 }
 export function DesktopPhoto({ name, alt, priority = false }: { name: string; alt: string; priority?: boolean }) {
+  const dimensions = imageDimensions[name as keyof typeof imageDimensions];
   return <picture>
+    <source media="(min-width: 901px)" type="image/avif" srcSet={[480, 640, 720, 900, 1440].map(width => `/images/${name}-${width}.avif ${width}w`).join(", ")} sizes="(min-width: 1600px) 540px, 40vw" />
     <source media="(min-width: 901px)" srcSet={[480, 900, 1440].map(width => `/images/${name}-${width}.webp ${width}w`).join(", ")} sizes="(min-width: 1600px) 540px, 40vw" />
-    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'/%3E" width="1440" height="1800" alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" />
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'/%3E" width={dimensions?.width || 1440} height={dimensions?.height || 1800} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" />
   </picture>;
 }
 export function PageIntro({ eyebrow, title, text, image, caption, action }: {

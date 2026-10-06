@@ -35,7 +35,8 @@ for (const path of paths) {
   assert.match(document, /name="robots"[^>]+content="noindex, nofollow"/);
   assert.ok(!document.includes("Starter Project"));
   for (const tag of document.matchAll(/<img\b[^>]*>/g)) {
-    assert.match(tag[0], /alt="[^"]+"/);
+    assert.match(tag[0], /alt="[^"]*"/);
+    if (tag[0].includes('alt=""')) assert.match(tag[0], /aria-hidden="true"/, "Decorative image is hidden from assistive technology");
     assert.match(tag[0], /width="\d+"/);
     assert.match(tag[0], /height="\d+"/);
     const src = tag[0].match(/src="([^"]+)"/)?.[1];

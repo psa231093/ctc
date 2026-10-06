@@ -365,7 +365,7 @@ button:focus:not(:focus-visible) {
   isolation: isolate;
   overflow: visible;
 }
-.hero-visual > .photo {
+.hero-visual > .responsive-photo > .photo {
   position: absolute;
   inset: 0;
   object-position: 50% 47%;
@@ -748,7 +748,7 @@ button:focus:not(:focus-visible) {
   flex-direction: column;
   align-items: center;
 }
-.lightbox-content > .photo {
+.lightbox-content > .responsive-photo > .photo {
   height: calc(100% - 82px);
   width: auto;
   max-width: 100%;
@@ -1062,7 +1062,7 @@ button:focus:not(:focus-visible) {
   position: relative;
   min-height: 590px;
 }
-.join-page-visual > .photo {
+.join-page-visual > .responsive-photo > .photo {
   position: absolute;
   inset: 0;
   object-position: 50% 35%;
@@ -1382,7 +1382,7 @@ button:focus:not(:focus-visible) {
     min-height: 0;
     aspect-ratio: 4/4.5;
   }
-  .hero-visual > .photo {
+  .hero-visual > .responsive-photo > .photo {
     object-position: 50% 35%;
   }
   .hero-sticker {
@@ -1942,7 +1942,7 @@ html {
   overflow: hidden;
   background: #313330;
 }
-.hero-monochrome .hero-visual > .photo {
+.hero-monochrome .hero-visual > .responsive-photo > .photo {
   object-position: 50% 49%;
   transform: scale(1.015);
 }
@@ -2470,7 +2470,7 @@ html {
     min-height: 0;
     aspect-ratio: 4/5;
   }
-  .hero-monochrome .hero-visual > .photo {
+  .hero-monochrome .hero-visual > .responsive-photo > .photo {
     object-position: 50% 50%;
     transform: none;
   }
@@ -2966,3 +2966,13 @@ html {
 }
 
 .program-photo { display:block; width:100%; height:100%; }
+
+.responsive-photo { display:contents; }
+.session-map { position:relative; height:300px; background:#171c1b; color:var(--paper); }
+.session-map-placeholder { position:absolute; inset:0; display:grid; place-content:center; gap:10px; padding:24px; text-align:center; font-size:13px; }
+.session-map-placeholder .mono { font-size:10px; color:#c6c9bb; }
+.session-map iframe { position:relative; height:100%; }
+@media(max-width:700px) { .session-map { height:260px; } }
+
+.film-poster, .film-poster img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+@media(max-width:700px) { .film-poster img { object-fit:contain; } }

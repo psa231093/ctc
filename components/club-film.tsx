@@ -138,10 +138,13 @@ export function ClubFilm() {
       </div>
       <div className="film-sticky">
         <div className="film-card">
+          <picture className="film-poster">
+            <source type="image/avif" srcSet="/images/film-poster-480.avif 480w, /images/film-poster-900.avif 900w, /images/film-poster.avif 1280w" sizes="100vw" />
+            <img src="/images/film-poster.webp" width="1280" height="674" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          </picture>
           <video
             ref={video}
             src={source}
-            poster="/images/film-poster.webp"
             muted
             playsInline
             loop

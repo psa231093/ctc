@@ -29,14 +29,12 @@ export default function ClubPage() {
         text="Chicago Training Club began in a park. What keeps it growing is the people who come back—and make room for someone new."
       />
       <div className="story-hero" id="club-photo">
-        <picture>
-          <source media="(max-width: 700px)" srcSet="/images/club-group-mobile-480.webp 480w, /images/club-group-mobile-768.webp 768w" sizes="100vw" />
         <Photo
           name="club-session"
+          mobile={{ name: "club-group-mobile", widths: [480, 768] }}
           alt="Chicago Training Club members together at the outdoor beach training bars"
           sizes="(max-width: 700px) 100vw, 80vw"
         />
-        </picture>
         <span className="story-photo-label mono">CHICAGO TRAINING CLUB<br />A SHARED PLACE. A SHARED PURPOSE.</span>
         <div className="story-overlay">
           <p>
