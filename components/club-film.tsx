@@ -11,13 +11,14 @@ export function ClubFilm() {
   useEffect(() => {
     if (!fullOpen) return;
     const dialog = filmDialog.current;
+    const playback = fullVideo.current;
     const previousOverflow = document.body.style.overflow;
     manuallyPaused.current = true;
     video.current?.pause();
     document.body.style.overflow = "hidden";
     dialog?.showModal();
     return () => {
-      fullVideo.current?.pause();
+      playback?.pause();
       dialog?.close();
       document.body.style.overflow = previousOverflow;
       fullTrigger.current?.focus({ preventScroll: true });
@@ -215,7 +216,7 @@ export function ClubFilm() {
           <span id="full-film-title" className="mono">CTC / THE CLUB FILM</span>
           <button autoFocus onClick={() => setFullOpen(false)}>Close film <span aria-hidden="true">&times;</span></button>
         </div>
-        <video ref={fullVideo} src={fullOpen ? source : undefined} controls playsInline preload="none" poster="/images/film-poster.webp" aria-label="Full Chicago Training Club film" onLoadedData={() => { if (fullOpen) fullVideo.current?.play().catch(() => {}); }} />
+        {fullOpen && <video ref={fullVideo} src={fullOpen ? source : undefined} controls playsInline preload="none" poster="/images/film-poster.webp" aria-label="Full Chicago Training Club film" onLoadedData={() => { if (fullOpen) fullVideo.current?.play().catch(() => {}); }} />}
         <p className="mono">ONE MINUTE AT THE BARS. <button onClick={() => setFullOpen(false)}>Back to the website</button></p>
       </dialog>
     </section>
