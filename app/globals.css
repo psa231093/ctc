@@ -2979,7 +2979,7 @@ html {
 
 @media(max-width:700px) and (prefers-reduced-motion:no-preference) {
   .join-copy[data-kinetic] > .chicago-star {
-    --star-arrival:clamp(0,calc(var(--section-progress, 0) * 3 - .2),1);
+    --star-arrival:clamp(0,calc(var(--section-progress, 0) * 5 - .1),1);
     opacity:var(--star-arrival);
     transform:translate3d(calc((1 - var(--star-arrival)) * 38px),0,0)
       rotate(calc((1 - var(--star-arrival)) * -45deg))
@@ -2987,3 +2987,4 @@ html {
     will-change:transform,opacity;
   }
 }
+.section-label .bicep-icon { width:20px; height:20px; display:block; flex-shrink:0; }

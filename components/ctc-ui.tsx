@@ -81,13 +81,15 @@ export function ButtonLink({
 export function Label({
   children,
   number,
+  icon,
 }: {
   children: React.ReactNode;
   number?: string;
+  icon?: React.ReactNode;
 }) {
   return (
     <div className="section-label">
-      <span>{number ? `[ ${number} ]` : <Star />}</span>
+      <span>{icon ?? (number ? `[ ${number} ]` : <Star />)}</span>
       {children}
     </div>
   );
@@ -96,7 +98,7 @@ export function JoinBanner() {
   return (
     <section className="join-banner section-pad" aria-labelledby="join-heading">
       <div className="join-top">
-        <Label>Come as you are. Put in the work.</Label>
+        <Label icon={<svg className="bicep-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M17 6c-3 0-5 2-5 5v5c0 2 1 4 3 5l5 2 4-7-4-3V9c0-2-1-3-3-3Zm8 11-8 15c-2 4-3 7-2 11l-7-3-3 10c10 8 22 12 34 9 13-3 22-12 21-22-1-8-7-13-14-13-6 0-11 3-14 8l-7-15Zm-2 28c4-8 10-12 16-10 2 1 4 3 4 5-8-2-14 1-20 5Z" /></svg>}>Come as you are. Put in the work.</Label>
         <span className="mono">CHICAGO, IL</span>
       </div>
       <div className="join-main" data-reveal>
