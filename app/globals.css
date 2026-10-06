@@ -2910,7 +2910,12 @@ html {
 
 /* Dark desktop page heroes, with the existing mobile palette. */
 @media (min-width:901px) {
-  .page-intro-editorial, .join-page-hero { background:var(--ink); color:var(--paper); }
+  .page-intro-editorial, .join-page-hero {
+    background:var(--ink); color:var(--paper);
+    /* Paint beyond the content container without changing its geometry. */
+    box-shadow:0 0 0 100vmax var(--ink);
+    clip-path:inset(0 -100vmax);
+  }
   .page-intro-editorial .breadcrumb, .join-page-hero .join-note { color:#b8bbae; }
   .page-intro-editorial .intro-description { color:#e0e1d8; }
   .page-intro-editorial .text-link:hover { color:white; }
