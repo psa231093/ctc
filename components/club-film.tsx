@@ -4,6 +4,25 @@ import { useEffect, useRef, useState } from "react";
 
 export function ClubFilm() {
   const section = useRef<HTMLElement>(null);
+  const filmDialog = useRef<HTMLDialogElement>(null);
+  const fullVideo = useRef<HTMLVideoElement>(null);
+  const fullTrigger = useRef<HTMLButtonElement>(null);
+  const [fullOpen, setFullOpen] = useState(false);
+  useEffect(() => {
+    if (!fullOpen) return;
+    const dialog = filmDialog.current;
+    const previousOverflow = document.body.style.overflow;
+    manuallyPaused.current = true;
+    video.current?.pause();
+    document.body.style.overflow = "hidden";
+    dialog?.showModal();
+    return () => {
+      fullVideo.current?.pause();
+      dialog?.close();
+      document.body.style.overflow = previousOverflow;
+      fullTrigger.current?.focus({ preventScroll: true });
+    };
+  }, [fullOpen]);
   const video = useRef<HTMLVideoElement>(null);
   const visible = useRef(false);
   const manuallyPaused = useRef(false);
@@ -178,24 +197,27 @@ export function ClubFilm() {
                 <svg className="playback-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">{playing ? <path d="M6 5h4v14H6zm8 0h4v14h-4z" /> : <path d="M8 5v14l11-7z" />}</svg>
                 {playing ? "Pause film" : "Play film"}
               </button>
-              <a
-                href="/video/ctc-film-1280.mp4"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open full club film in a new tab"
-              >
-                <span className="mono">FULL FILM</span>
-              </a>
+              <button ref={fullTrigger} className="full-film-trigger" onClick={() => { loadFilm(); setFullOpen(true); }} aria-haspopup="dialog">
+                <span className="mono">Full film</span>
+              </button>
             </div>
           </div>
           {failed && (
             <p className="film-error" role="status">
               The film couldn’t load.{" "}
-              <a href="/video/ctc-film-1280.mp4">Open the video directly.</a>
+              <button onClick={() => { loadFilm(); setFullOpen(true); }}>Try the full film player.</button>
             </p>
           )}
         </div>
       </div>
+      <dialog className="full-film-dialog" ref={filmDialog} aria-labelledby="full-film-title" onCancel={() => setFullOpen(false)} onClose={() => setFullOpen(false)}>
+        <div className="full-film-toolbar">
+          <span id="full-film-title" className="mono">CTC / THE CLUB FILM</span>
+          <button autoFocus onClick={() => setFullOpen(false)}>Close film <span aria-hidden="true">&times;</span></button>
+        </div>
+        <video ref={fullVideo} src={fullOpen ? source : undefined} controls playsInline preload="none" poster="/images/film-poster.webp" aria-label="Full Chicago Training Club film" onLoadedData={() => { if (fullOpen) fullVideo.current?.play().catch(() => {}); }} />
+        <p className="mono">ONE MINUTE AT THE BARS. <button onClick={() => setFullOpen(false)}>Back to the website</button></p>
+      </dialog>
     </section>
   );
 }
