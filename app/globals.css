@@ -2845,3 +2845,17 @@ html {
  .product-preview { scroll-snap-align:start; }
 }
 @media(prefers-reduced-motion:reduce) { .gallery-pagination button span { transition:none; } }
+
+/* The membership stamp follows the image as it passes through the viewport. */
+.join-page-visual > .membership-tag {
+ transform:translateY(calc((var(--section-progress,.35) - .35) * -70px)) rotate(calc(-8deg + var(--section-progress,.35) * 14deg));
+ transform-origin:30% 50%;
+}
+@media(max-width:700px) {
+ .faq-section .faq-star { display:none; }
+ .faq-section { gap:22px; }
+ .join-page-visual > .membership-tag { left:12px; right:12px; width:fit-content; max-width:calc(100% - 24px); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .join-page-visual > .membership-tag { transform:rotate(-5deg); }
+}

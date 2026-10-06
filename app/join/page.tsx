@@ -33,7 +33,7 @@ export default function JoinPage() {
             information, or send the club a message to plan your first visit.
           </p>
         </div>
-        <div className="join-page-visual">
+        <div className="join-page-visual" data-kinetic>
           <Photo
             name="bar-work"
             alt="A smiling CTC athlete at the Chicago outdoor calisthenics bars"
