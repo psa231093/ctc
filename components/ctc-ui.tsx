@@ -144,11 +144,12 @@ export function Footer() {
         <a href="/chicago-calisthenics">The training</a>
         <a href="/community">The people</a>
         <a href="/join">Train with us</a>
+        <a className="footer-mobile-shop" href={club.store} target="_blank" rel="noopener noreferrer">Shop<span className="sr-only"> (opens in a new tab)</span></a>
       </nav>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Chicago Training Club</span>
         <div>
-          <a href={club.store} target="_blank" rel="noopener noreferrer">
+          <a className="footer-desktop-shop" href={club.store} target="_blank" rel="noopener noreferrer">
             Shop<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a href={club.instagram} target="_blank" rel="noopener noreferrer">
