@@ -102,7 +102,7 @@ byId('play-film').addEventListener('click', async () => {
 });
 document.querySelectorAll('[data-tone]').forEach(button => button.addEventListener('click', () => {
   byId('identity-playground').dataset.tone = button.dataset.tone;
-  document.querySelectorAll('.swatch').forEach(other => { const selected = other === button; other.classList.toggle('selected', selected); other.setAttribute('aria-pressed', String(selected)); });
+  document.querySelectorAll('.swatch').forEach(other => { const selected = other === button; other.classList.toggle('selected', selected); other.setAttribute('aria-pressed', String(selected)); other.querySelector('.swatch-action').textContent = selected ? 'Selected' : 'Preview'; });
 }));
 const evidence = {
   join: { title: 'Four 100s. The actual Google report.', html: '<img src="./assets/psi-join.png" alt="Google PageSpeed Insights report showing 100 Performance, Accessibility, Best Practices and SEO for the CTC Train with us page on mobile"><p class="evidence-caption">Train with us / Mobile · October 6, 2026, 2:18 PM CDT.<a target="_blank" rel="noopener" href="https://pagespeed.web.dev/analysis/https-ctc-nu-plum-vercel-app-join/njlspbxbtr?form_factor=mobile">Open the original report</a></p>' },
