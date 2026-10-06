@@ -115,9 +115,9 @@ export function JoinBanner() {
       </div>
       <div className="join-main" data-reveal>
         <h2 id="join-heading">
-          YOUR CITY.
+          MEET US
           <br />
-          YOUR PEOPLE.
+          AT THE BARS.
         </h2>
         <div className="join-copy">
           <Star />
@@ -150,6 +150,13 @@ export function Footer() {
           Back to top <span aria-hidden="true">↑</span>
         </a>
       </div>
+      <nav className="footer-navigation" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/the-club">The club</a>
+        <a href="/chicago-calisthenics">The training</a>
+        <a href="/community">The people</a>
+        <a href="/join">Train with us</a>
+      </nav>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Chicago Training Club</span>
         <div>

@@ -66,7 +66,7 @@ export const programs = [
   {
     id: "research",
     number: "03",
-    title: "Stay a student.",
+    title: "Build your next breakthrough.",
     label: "Research & development",
     image: "front-lever",
     alt: "A calisthenics athlete practicing a horizontal hold on Chicago park bars",

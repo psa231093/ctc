@@ -1,6 +1,6 @@
 import { club } from "@/lib/ctc";
 import { featuredProducts } from "@/lib/shop-preview";
-import { Arrow, ButtonLink, Label, Photo } from "./ctc-ui";
+import { Label, Photo } from "./ctc-ui";
 export function ShopPreview() {
   return (
     <section
@@ -9,22 +9,22 @@ export function ShopPreview() {
     >
       <div className="section-heading" data-reveal>
         <div>
-          <Label number="04">Made for the practice</Label>
+          <Label number="04">The CTC collection</Label>
           <h2 id="shop-heading">
-            TAKE THE CLUB
+            REP THE CLUB.
             <br />
-            WITH YOU.
+            ON & OFF THE BARS.
           </h2>
         </div>
         <div className="shop-intro">
           <p>
-            From the first set to the rest of your day.
+            Hoodies. Training pants. Club tees.
             <br />
-            Explore the CTC collection.
+            Wear your connection to CTC.
           </p>
-          <ButtonLink href={club.store} external>
-            Visit the CTC shop
-          </ButtonLink>
+          <a className="button" href={club.store} target="_blank" rel="noopener noreferrer">
+            Explore the collection
+          <span className="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
       <div className="product-grid">
@@ -44,9 +44,7 @@ export function ShopPreview() {
                 sizes="(max-width: 700px) 85vw, 31vw"
               />
               <span className="product-index mono">CTC / 0{index + 1}</span>
-              <span className="product-visit">
-                <Arrow diagonal />
-              </span>
+              <span className="product-visit mono">EXPLORE</span>
             </div>
             <div className="product-caption">
               <h3>{product.name}</h3>
