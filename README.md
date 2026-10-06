@@ -44,6 +44,10 @@ Phase 1 includes direct links to the existing Shopify store and three real produ
 
 The homepage uses the supplied monochrome handstand photograph and a scroll-expanding club film. Desktop and mobile H.264 encodes load on approach; playback pauses offscreen and respects reduced motion and data-saving preferences. See `docs/MEDIA.md` for asset provenance and optimization.
 
+## Vercel deployment
+
+`vercel.json` selects the native Next.js build (`npm run build:vercel`) and `.next` output for Vercel. The default `npm run build` still generates the Cloudflare Worker used by the Sites preview. These deployment artifacts are different and must not be substituted for each other. Node.js is pinned to the 22.x major version. Import this repository into Vercel at the repository root; the committed configuration supplies the framework, build command and output directory. To check the native build locally, run `npm run build:vercel` followed by `npm run start:vercel`.
+
 ## SEO release switch
 
 Private review deployments default to **noindex** and disallow crawling. Public launch requires the approved domain cutover and `CTC_INDEXABLE=true`, followed by a build/deploy and verification of rendered metadata and robots.txt. The canonical origin is `https://www.chicagotrainingclub.com`. Search Console setup and domain access remain owner launch steps. See the SEO checklist before switching.
