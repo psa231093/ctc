@@ -23,3 +23,5 @@ The user-supplied `Pictures/instagram` exports provide the club, training, and c
 Mobile club group photo supplied by the owner on October 6, 2026. Optimized as club-group-mobile WebP at 480 and 768px; art-directed only into the club story image at mobile sizes, with its full portrait composition preserved.
 
 People and training hero photos supplied by the owner on October 6, 2026. Optimized as people-hero and training-hero WebP variants at 480, 900 and 1440px, preserving the full portrait framing.
+
+Breakthrough mobile photo supplied by the owner on October 6, 2026; responsive WebP at 480, 900 and 1440px. Used only below 701px in the research training section, within the original image frame.

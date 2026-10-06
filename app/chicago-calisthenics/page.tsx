@@ -35,11 +35,14 @@ export default function TrainingPage() {
           id={program.id}
         >
           <div className="program-detail-image">
+            <picture className="program-photo">
+              {program.id === "research" && <source media="(max-width: 700px)" srcSet="/images/breakthrough-mobile-480.webp 480w, /images/breakthrough-mobile-900.webp 900w, /images/breakthrough-mobile-1440.webp 1440w" sizes="100vw" />}
             <Photo
               name={program.image}
-              alt={program.alt}
+              alt={program.id === "research" ? "A CTC athlete practicing calisthenics on red outdoor bars" : program.alt}
               priority={program.number === "01"}
             />
+            </picture>
           </div>
           <div className="program-detail-copy" data-reveal>
             <Label number={program.number}>{program.label}</Label>

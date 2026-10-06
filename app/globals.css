@@ -2964,3 +2964,5 @@ html {
   .story-hero .story-overlay { background:linear-gradient(transparent 73%,#0008); padding:20px; }
   .story-overlay p { font-size:clamp(25px,7vw,34px); line-height:1; }
 }
+
+.program-photo { display:block; width:100%; height:100%; }
