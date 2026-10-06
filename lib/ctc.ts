@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 export const club = {
+  store: "https://f01e77-28.myshopify.com/",
   name: "Chicago Training Club",
   url: "https://www.chicagotrainingclub.com",
   instagram: "https://www.instagram.com/chicagotrainingclub/",

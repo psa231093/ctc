@@ -1,5 +1,26 @@
 [
   {
+    "file": "one-arm-handstand-480.webp",
+    "width": 480,
+    "height": 600,
+    "bytes": 10184,
+    "source": "CTC_beach-jams-26_80.jpg"
+  },
+  {
+    "file": "one-arm-handstand-900.webp",
+    "width": 900,
+    "height": 1125,
+    "bytes": 47176,
+    "source": "CTC_beach-jams-26_80.jpg"
+  },
+  {
+    "file": "one-arm-handstand-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "bytes": 208050,
+    "source": "CTC_beach-jams-26_80.jpg"
+  },
+  {
     "file": "chicago-handstands-480.webp",
     "width": 480,
     "height": 600,

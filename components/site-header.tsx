@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Arrow, Star } from "./ctc-ui";
+import { Arrow } from "./ctc-ui";
+import { club } from "@/lib/ctc";
 const links = [
   { href: "/the-club", label: "The club" },
   { href: "/chicago-calisthenics", label: "The training" },
@@ -32,9 +33,6 @@ export function SiteHeader() {
           alt="Chicago Training Club"
         />
       </a>
-      <div className="header-place mono">
-        <Star /> CHICAGO BUILT.
-      </div>
       <button
         ref={button}
         className="menu-toggle"
@@ -60,6 +58,15 @@ export function SiteHeader() {
             {link.label}
           </a>
         ))}
+        <a
+          href={club.store}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+        >
+          The shop <span aria-hidden="true">↗</span>
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
         <a
           className="nav-cta"
           href="/join"

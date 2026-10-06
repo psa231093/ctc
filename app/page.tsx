@@ -8,6 +8,8 @@ import {
 } from "@/components/ctc-ui";
 import { TrainingSelector } from "@/components/training-selector";
 import { Gallery } from "@/components/gallery";
+import { ClubFilm } from "@/components/club-film";
+import { ShopPreview } from "@/components/shop-preview";
 import { club, pageMetadata } from "@/lib/ctc";
 export const metadata = pageMetadata(
   "Chicago Calisthenics & Community",
@@ -36,7 +38,11 @@ export default function Home() {
           __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="hero section-pad" aria-labelledby="hero-heading">
+      <section
+        className="hero section-pad hero-monochrome"
+        aria-labelledby="hero-heading"
+        data-kinetic
+      >
         <div className="hero-copy">
           <h1 id="hero-heading">
             <span className="hero-eyebrow mono">
@@ -64,16 +70,16 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <ButtonLink href="/join">Find your people</ButtonLink>
-              <a href="#training" className="text-link">
-                Find your practice <span aria-hidden="true">↓</span>
+              <a href="#club-film" className="text-link">
+                Step inside CTC <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
         </div>
         <div className="hero-visual">
           <Photo
-            name="chicago-handstands"
-            alt="Two Chicago Training Club athletes practicing handstands at the lakefront with the city skyline behind them"
+            name="one-arm-handstand"
+            alt="A Chicago Training Club athlete holding a one-arm handstand beside Lake Michigan, photographed in black and white"
             priority
             sizes="(max-width: 700px) 100vw, 50vw"
           />
@@ -82,9 +88,12 @@ export default function Home() {
             <br />
             CHICAGO, ILLINOIS.
           </div>
-          <div className="hero-sticker">
-            <span>ALL LEVELS.</span>
-            <span>ONE CLUB.</span>
+          <div className="hero-stamp">
+            <span className="mono">
+              BODYWEIGHT.
+              <br />
+              BOUNDLESS.
+            </span>
             <Arrow diagonal />
           </div>
           <div className="hero-photo-bottom mono">
@@ -93,21 +102,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="club-ribbon">
-        <span>NO EGO. JUST EFFORT.</span>
-        <Star />
-        <span>ALL ROADS LEAD TO CHICAGO.</span>
-        <Star />
-        <span>STRONGER, TOGETHER.</span>
-        <Star />
-      </div>
+      <ClubFilm />
       <section
-        className="manifesto section-pad"
+        className="manifesto manifesto-remix section-pad"
         aria-labelledby="manifesto-heading"
+        data-kinetic
       >
+        <div className="manifesto-masthead" aria-hidden="true">
+          <span>NO EGO. </span>
+          <span className="outline-text">JUST EFFORT.</span>
+          <Star />
+        </div>
         <div className="manifesto-aside">
           <Label number="01">The club</Label>
-          <figure data-reveal>
+          <figure className="manifesto-main-photo">
             <Photo
               name="club-culture"
               alt="CTC members sharing a training session on the outdoor bars"
@@ -115,6 +123,16 @@ export default function Home() {
             />
             <figcaption className="mono tiny">
               BUILT IN THE PARK. CARRIED INTO LIFE.
+            </figcaption>
+          </figure>
+          <figure className="manifesto-inset-photo">
+            <Photo
+              name="handstand-study"
+              alt="An athlete practicing a handstand in silhouette"
+              sizes="(max-width: 700px) 40vw, 15vw"
+            />
+            <figcaption className="mono tiny">
+              ALWAYS A WORK IN PROGRESS.
             </figcaption>
           </figure>
         </div>
@@ -169,8 +187,9 @@ export default function Home() {
         <TrainingSelector />
       </section>
       <section
-        className="community-section"
+        className="community-section community-remix"
         aria-labelledby="community-heading"
+        data-kinetic
       >
         <div className="section-heading section-pad" data-reveal>
           <div>
@@ -187,6 +206,7 @@ export default function Home() {
         </div>
         <Gallery />
       </section>
+      <ShopPreview />
       <JoinBanner />
     </main>
   );

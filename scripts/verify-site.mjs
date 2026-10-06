@@ -48,6 +48,14 @@ for (const path of paths) {
     assert.equal(schema["@type"], "SportsOrganization");
     assert.equal(schema.location.name, "Chicago");
     assert.match(document, /CHICAGO CALISTHENICS/);
+    assert.match(document, /one-arm-handstand-/);
+    const film = document.match(/<video\b[^>]*>/)?.[0];
+    assert.ok(film, "Club film is rendered");
+    assert.match(film, /preload="none"/);
+    assert.ok(!/\ssrc=/.test(film), "Film bytes deferred until visibility or user play");
+    for (const handle of ["research-hoodie", "training-pant", "ctc-trinity-system-chalk-tee"])
+      assert.ok(document.includes(`https://f01e77-28.myshopify.com/products/${handle}`));
+    assert.ok(!document.match(/<header[\s\S]*?<\/header>/)?.[0].includes("CHICAGO BUILT"));
   }
   console.log(
     `PASS ${path}: server HTML, title, H1, canonical, metadata, image attributes`,
@@ -63,6 +71,13 @@ for (const asset of [
   assert.equal((await fetch(base + asset)).status, 200, `Asset: ${asset}`);
 }
 const robots = await (await fetch(base + "/robots.txt")).text();
+for (const size of [720, 1280]) {
+  const response = await fetch(`${base}/video/ctc-film-${size}.mp4`, {headers: {Range: "bytes=0-1023"}});
+  assert.ok([200, 206].includes(response.status), "Film is served successfully");
+  assert.match(response.headers.get("content-type"), /video\/mp4/);
+  const bytes = (await response.arrayBuffer()).byteLength;
+  assert.ok(response.status === 206 ? bytes === 1024 : bytes > 1000000);
+}
 assert.match(robots, /Disallow: \//);
 const sitemap = await (await fetch(base + "/sitemap.xml")).text();
 for (const path of paths)

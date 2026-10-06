@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT.parent / 'Pictures'
 TARGET = ROOT / 'public' / 'images'
 IMAGES = {
+    'one-arm-handstand': 'CTC_beach-jams-26_80.jpg',
     'chicago-handstands': 'CTC_beach-jams-26_10.jpg',
     'lakefront-handstand': 'CTC_beach-jams-26_52.jpg',
     'club-session': 'CTC_beach-jams-26_37.jpg',

@@ -38,7 +38,9 @@ The verification script expects a running review server at port 5173. Override i
 
 The Genially presentation is the primary club-content source. The live CTC website establishes the official social links. The local promotional posters support first-session guidance, but their undated times are not presented as a current schedule. Instagram is the verified route for session enquiries; no fake booking or email-submission flow is included.
 
-Ecommerce remains outside Phase 1. No Shopify API calls, store UI, product mocks or payment handling are included.
+Phase 1 includes direct links to the existing Shopify store and three real product previews, verified from its public catalog on October 5, 2026. Prices, stock, checkout and transactions remain on Shopify. There is no embedded cart or live commerce integration.
+
+The homepage uses the supplied monochrome handstand photograph and a scroll-expanding club film. Desktop and mobile H.264 encodes load on approach; playback pauses offscreen and respects reduced motion and data-saving preferences. See `docs/MEDIA.md` for asset provenance and optimization.
 
 ## SEO release switch
 
