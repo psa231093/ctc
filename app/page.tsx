@@ -46,22 +46,21 @@ export default function Home() {
         data-kinetic
       >
         <div className="hero-copy">
-          <h1 id="hero-heading">
-            <span className="hero-eyebrow mono">
+          <div className="hero-heading-group">
+            <p className="hero-eyebrow mono">
               <span className="status-dot" />
-              CHICAGO CALISTHENICS. ALL LEVELS.
-            </span>
+              CHICAGO’S LARGEST CALISTHENICS COMMUNITY
+            </p>
+          <h1 id="hero-heading">
             <span className="hero-title">
-              BUILT BY
+              CHICAGO.
               <br />
-              SHOWING
+              RAISE THE
               <br />
-              <span className="last-line">
-                UP.
-                <Star />
-              </span>
+              BAR.
             </span>
           </h1>
+          </div>
           <div className="hero-bottom">
             <p>
               A city. A set of bars. A shared obsession.

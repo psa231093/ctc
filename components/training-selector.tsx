@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { programs } from "@/lib/ctc";
 import { Arrow, Photo } from "./ctc-ui";
+import { AccordionPanel } from "./accordion-panel";
 export function TrainingSelector() {
   const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState<number | null>(0);
   return (
     <div className="training-selector">
       <div className="training-image">
@@ -18,23 +20,25 @@ export function TrainingSelector() {
       <div className="training-options">
         {programs.map((program, index) => (
           <div
-            className={`training-option ${index === active ? "active" : ""}`}
+            className={`training-option ${index === expanded ? "active" : ""}`}
             key={program.id}
           >
             <button
-              aria-expanded={index === active}
+              id={`program-trigger-${program.id}`}
+              aria-expanded={index === expanded}
               aria-controls={`program-${program.id}`}
-              onClick={() => setActive(index)}
+              onClick={() => { setExpanded(current => current === index ? null : index); setActive(index); }}
             >
               <span className="mono">{program.number}</span>
               <span>{program.label}</span>
-              <span aria-hidden="true">{index === active ? "−" : "+"}</span>
+              <span className="accordion-icon" aria-hidden="true" />
             </button>
-            <div
+            <AccordionPanel
               id={`program-${program.id}`}
-              hidden={index !== active}
-              className="program-panel"
+              labelledBy={`program-trigger-${program.id}`}
+              open={index === expanded}
             >
+              <div className="program-panel">
               <h3>{program.title}</h3>
               <p>{program.text}</p>
               <span className="mono tiny">{program.detail}</span>
@@ -44,7 +48,8 @@ export function TrainingSelector() {
               >
                 Explore the training <Arrow />
               </a>
-            </div>
+              </div>
+            </AccordionPanel>
           </div>
         ))}
       </div>

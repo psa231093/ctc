@@ -2,6 +2,8 @@
 
 A responsive, server-rendered React website built with TypeScript, the Next-compatible Vinext runtime, and custom CSS. Real CTC photography, locally hosted fonts, subtle motion, an interactive training selector and a keyboard-accessible photo viewer.
 
+The repository includes the optimized photographs, fonts and videos required to run the site. Original source photographs and the optional asset-regeneration inputs are kept outside the repository; they are not needed for development or builds. `components/accordion-panel.tsx` provides accessible, animated panels shared by training and FAQs.
+
 ## Run locally
 
 Requires Node.js >=22.13.

@@ -2780,3 +2780,27 @@ html {
   .sunday-film { transform:none; }
   .sunday-play-icon,.instagram-post img { transition:none; }
 }
+/* Shared natural-height accordion transitions, including the closing state. */
+.accordion-panel { display:grid; grid-template-rows:0fr; opacity:0; visibility:hidden; transition:grid-template-rows 420ms cubic-bezier(.22,1,.36,1), opacity 240ms ease, visibility 0s linear 420ms; }
+.accordion-panel[data-open="true"] { grid-template-rows:1fr; opacity:1; visibility:visible; transition:grid-template-rows 420ms cubic-bezier(.22,1,.36,1), opacity 280ms ease, visibility 0s; }
+.accordion-panel-clip { min-height:0; overflow:hidden; }
+.accordion-icon { position:relative; display:block; flex:none; width:18px; height:18px; }
+.accordion-icon::before,.accordion-icon::after { content:""; position:absolute; width:14px; height:1.5px; background:currentColor; top:8px; left:2px; }
+.accordion-icon::after { transform:rotate(90deg); transition:transform 320ms cubic-bezier(.22,1,.36,1),opacity 240ms; }
+[aria-expanded="true"] > .accordion-icon::after { transform:rotate(0deg); opacity:0; }
+.faq-item { border-bottom:1px solid #bcbfb1; }
+.faq-item:first-child { border-top:1px solid #bcbfb1; }
+.faq-trigger { display:flex; width:100%; justify-content:space-between; align-items:center; text-align:left; gap:20px; background:none; font-size:15px; font-weight:400; padding:25px 0; }
+.faq-item p { font-size:14px; line-height:1.8; color:var(--muted); padding-bottom:26px; max-width:550px; }
+.hero-monochrome .hero-title { font-size:clamp(88px,10.7vw,164px); line-height:.87; }
+.hero-monochrome .hero-eyebrow { max-width:100%; font-size:11px; }
+.hero-eyebrow .status-dot { flex-shrink:0; }
+@media(max-width:700px) {
+  .hero-monochrome .hero-title { font-size:clamp(64px,22.4vw,150px); }
+  .hero-monochrome .hero-eyebrow { font-size:10px; max-width:310px; }
+  .faq-trigger { font-size:14px; }
+  .faq-item p { font-size:13px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .accordion-panel,.accordion-panel[data-open="true"],.accordion-icon::after { transition:none; }
+}

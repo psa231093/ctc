@@ -47,7 +47,9 @@ for (const path of paths) {
     );
     assert.equal(schema["@type"], "SportsOrganization");
     assert.equal(schema.location.name, "Chicago");
-    assert.match(document, /CHICAGO CALISTHENICS/);
+    assert.match(document, /CHICAGO’S LARGEST CALISTHENICS COMMUNITY/);
+    assert.match(document, /RAISE THE/);
+    assert.ok(!document.match(/<h1[\s\S]*?<\/h1>/)?.[0].includes("chicago-star"));
     assert.match(document, /one-arm-handstand-/);
     const film = document.match(/<video\b[^>]*>/)?.[0];
     assert.ok(film, "Club film is rendered");

@@ -1,5 +1,6 @@
 import { ButtonLink, Label, Photo, Star } from "@/components/ctc-ui";
-import { club, faqs, pageMetadata } from "@/lib/ctc";
+import { club, pageMetadata } from "@/lib/ctc";
+import { FaqAccordion } from "@/components/faq-accordion";
 export const metadata = pageMetadata(
   "Join CTC — Calisthenics in Chicago for All Levels",
   "Join Chicago Training Club. Membership is free and all skill levels are welcome. Find current session details and answers for your first CTC training session.",
@@ -80,14 +81,7 @@ export default function JoinPage() {
           </h2>
           <Star className="faq-star" />
         </div>
-        <div className="faq-list">
-          {faqs.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion />
       </section>
     </main>
   );
