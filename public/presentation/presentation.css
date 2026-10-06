@@ -34,3 +34,38 @@ dialog{position:fixed;border:0;padding:32px;color:var(--ink);background:var(--pa
 @media(max-width:540px){.photo-gallery img{height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain}.photo-gallery figure:last-child{max-width:280px;margin:auto}.photo-gallery figure:last-child img{height:auto}}
 @media(max-width:540px){.performance-title h2{font-size:21.5vw}.caption-button{min-height:44px}}
 @media(max-width:540px){.palette .display,.logo-guide-heading .display,.behavior-heading .display{font-size:17vw}.identity-playground .color-specimen{font-size:17vw}}
+
+/* One consistent icon style avoids platform-dependent emoji glyphs. */
+.icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
+.icon{width:20px;height:20px;flex:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none;transition:transform .2s ease}
+.line-link:hover .icon,.solid-button:hover .icon{transform:translate(2px,-2px)}
+.slide-controls .icon{width:22px;height:22px}
+.slide-controls button{display:grid;place-items:center}
+.proof-actions .solid-button .icon{width:18px;height:18px}
+
+/* Mark the selected color at its edge, keeping the Paper swatch clean. */
+.swatch.selected{outline:0;box-shadow:inset 0 -4px currentColor}
+.swatch.selected .swatch-action{font-weight:700}
+.report-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.report-results>div{min-height:250px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;background:var(--paper)}
+.report-results span,.report-results small{font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.report-results strong{font:700 clamp(95px,14vw,180px)/.85 Barlow,sans-serif;color:#22603b}
+.evidence-caption a{display:inline-block;margin-top:8px;text-underline-offset:3px}
+
+@media(max-width:540px){
+  .page-selector{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+  .page-selector button{min-width:0;width:100%;justify-content:flex-start;flex:none;white-space:normal;text-align:left}
+  .page-selector button.selected:before{display:none}
+  .page-selector button.selected{box-shadow:inset 0 -2px var(--ink)}
+  .typography{grid-template-columns:minmax(0,1fr);gap:34px}
+  .type-title,.type-specimen,.type-body{min-width:0}
+  .type-title h2{font-size:clamp(42px,12vw,58px)}
+  .specimen-display{font-size:clamp(45px,14vw,68px)}
+  .type-alphabet{font-size:16px;letter-spacing:.045em;overflow-wrap:anywhere;line-height:1.4}
+  .photography{justify-content:flex-start;min-height:0;padding-bottom:68px}
+  .photo-footer{margin-top:20px;padding-top:16px}
+  .report-results>div{min-height:180px;padding:18px}
+  .report-results strong{font-size:23vw}
+  .report-results span,.report-results small{font-size:10px}
+  .evidence-caption a{display:block;margin-left:0}
+}
