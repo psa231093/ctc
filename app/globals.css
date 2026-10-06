@@ -2993,7 +2993,7 @@ html {
 .build-piece { display:inline-block; }
 @media(prefers-reduced-motion:no-preference) {
   .build-piece {
-    --piece-progress:clamp(0,calc(var(--section-progress,0) * 4 - var(--piece) * .045),1);
+    --piece-progress:clamp(0,calc(var(--section-progress,0) * var(--assembly-rate,4) - var(--piece) * .045),1);
     transform:translate3d(0,calc((1 - var(--piece-progress)) * -.48em),0)
       rotate(calc((1 - var(--piece-progress)) * var(--lean)))
       scale(calc(.82 + var(--piece-progress) * .18));
@@ -3002,3 +3002,4 @@ html {
     will-change:transform,opacity;
   }
 }
+@media(max-width:700px) { .build-assembly { --assembly-rate:2.8; } }
