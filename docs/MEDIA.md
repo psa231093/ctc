@@ -19,3 +19,5 @@ Product images and materials were verified from `https://f01e77-28.myshopify.com
 ## Desktop interior-page portraits
 
 The user-supplied `Pictures/instagram` exports provide the club, training, and community hero portraits. Full portrait composition is retained, with 480/900/1440px WebP variants; see `desktop-image-manifest.json` for source mappings and sizes. Desktop-only picture sources avoid downloading these additions below 901px. The club story uses the complete original club-session portrait instead of cropping it into a wide desktop banner.
+
+Mobile training group photo supplied by the owner on October 6, 2026. Optimized as training-group-mobile WebP at 480 and 768px; art-directed only into the first training image at mobile sizes, with its full portrait composition preserved.

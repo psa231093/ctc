@@ -2907,3 +2907,21 @@ html {
 @media (max-width:700px) {
   .sunday-copy > .text-link { margin-top:4px; }
 }
+
+/* Dark desktop page heroes, with the existing mobile palette. */
+@media (min-width:901px) {
+  .page-intro-editorial, .join-page-hero { background:var(--ink); color:var(--paper); max-width:none; }
+  .page-intro-editorial .breadcrumb, .join-page-hero .join-note { color:#b8bbae; }
+  .page-intro-editorial .intro-description { color:#e0e1d8; }
+  .page-intro-editorial .text-link:hover { color:white; }
+  .intro-portrait figcaption { background:#262922; }
+  .join-page-hero .button { background:var(--paper); color:var(--ink); border-color:var(--paper); }
+  .join-page-hero .button:hover { background:white; }
+}
+.program-detail-image picture { display:block; width:100%; height:100%; }
+@media (max-width:700px) {
+  #sessions .program-detail-image { aspect-ratio:3/4; }
+  #sessions .program-detail-image .photo { object-position:center; }
+  .footer-navigation { grid-template-columns:max-content max-content; gap:0 26px; padding-bottom:20px; }
+  .footer-navigation a { font-size:21px; line-height:1.15; min-height:44px; display:flex; align-items:center; }
+}
