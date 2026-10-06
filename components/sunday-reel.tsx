@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { Arrow, Label } from "./ctc-ui";
 import { club } from "@/lib/ctc";
 
@@ -27,7 +28,7 @@ export function SundayReel() {
       <div className="sunday-layout">
       <div className="sunday-copy">
         <Label>Behind the session / Oak Street Beach</Label>
-        <h2 id="sunday-heading">FIRST, WE<br /><span className="outline-text">BUILD THE</span><br />PLAYGROUND.</h2>
+        <h2 id="sunday-heading" data-kinetic>FIRST, WE<br /><span className="sr-only">BUILD THE</span><span className="outline-text build-assembly" aria-hidden="true">{Array.from("BUILD THE").map((letter, index) => <span key={index} className="build-piece" style={{ "--piece": index, "--lean": `${index % 2 ? 12 : -12}deg` } as CSSProperties}>{letter === " " ? "\u00a0" : letter}</span>)}</span><br />PLAYGROUND.</h2>
         <p className="sunday-deck">The session starts before the first rep.</p>
         <p>Every Sunday, the team brings the bars to Oak Street Beach. Unload. Assemble. Train together. Take a look at the work—and the people—behind a CTC beach session.</p>
         <a href={club.instagram} target="_blank" rel="noopener noreferrer" className="text-link">Check the next session <Arrow diagonal /><span className="sr-only"> (Instagram, opens in a new tab)</span></a>
