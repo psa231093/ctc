@@ -15,3 +15,7 @@ The club film is the supplied `../Video.mp4`: 61 seconds, 1280×674, with no aud
 The video has no initial source or preload. On approach, it selects the mobile or desktop encode and plays muted. Reduced motion and Save-Data prevent automatic loading/playback; visitors can explicitly play it. It pauses offscreen and when the document is hidden. The original film is silent, described next to the playback control.
 
 Product images and materials were verified from `https://f01e77-28.myshopify.com/products.json?limit=100` on October 5, 2026. The Research Hoodie, Training Pant and Trinity Tee — Chalk previews use the first product image in that catalog. Local 480/900/1440 WebP derivatives minimize third-party requests. `lib/shop-preview.ts` holds the editorial selections; review them when the store changes. Live prices, stock and checkout are deliberately left to Shopify.
+
+## Desktop interior-page portraits
+
+The user-supplied `Pictures/instagram` exports provide the club, training, and community hero portraits. Full portrait composition is retained, with 480/900/1440px WebP variants; see `desktop-image-manifest.json` for source mappings and sizes. Desktop-only picture sources avoid downloading these additions below 901px. The club story uses the complete original club-session portrait instead of cropping it into a wide desktop banner.

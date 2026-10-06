@@ -10,6 +10,9 @@ export default function CommunityPage() {
   return (
     <main id="main">
       <PageIntro
+        image={{ name: "community-desktop", alt: "A smiling CTC athlete training on red bars with the Chicago skyline behind her" }}
+        caption="The people make the practice."
+        action={{ href: "#community-gallery", label: "Meet the community" }}
         eyebrow="03 / The people"
         title={
           <>
@@ -20,7 +23,7 @@ export default function CommunityPage() {
         }
         text="The attempts. The encouragement. The moment something clicks. A few frames from life at the bars with Chicago Training Club."
       />
-      <Gallery full />
+      <div id="community-gallery"><Gallery full /></div>
       <div
         className="community-follow section-pad"
         style={{ paddingBottom: 70 }}

@@ -1,5 +1,6 @@
 import {
   Arrow,
+  DesktopPhoto,
   JoinBanner,
   Label,
   PageIntro,
@@ -15,6 +16,9 @@ export default function ClubPage() {
   return (
     <main id="main">
       <PageIntro
+        image={{ name: "club-desktop", alt: "A CTC athlete holding a handstand on parallel bars with Chicago buildings behind them" }}
+        caption="A shared place. A shared purpose."
+        action={{ href: "#our-story", label: "How it started" }}
         eyebrow="01 / Our story"
         title={
           <>
@@ -28,8 +32,7 @@ export default function ClubPage() {
         <Photo
           name="club-session"
           alt="Chicago Training Club members practicing together around outdoor training bars"
-          priority
-          sizes="100vw"
+          sizes="(max-width: 700px) 100vw, 80vw"
         />
         <div className="story-overlay">
           <p>
@@ -39,7 +42,11 @@ export default function ClubPage() {
           </p>
         </div>
       </div>
-      <section className="story-block section-pad">
+      <section className="story-block section-pad" id="our-story">
+        <figure className="story-portrait">
+          <DesktopPhoto name="club-session" alt="CTC members training together on red bars at the beach, with the full group and skyline visible" />
+          <figcaption className="mono">THE BEST THING WE BUILD IS EACH OTHER.</figcaption>
+        </figure>
         <div>
           <Label>The beginning</Label>
           <h2 style={{ marginTop: 25 }}>

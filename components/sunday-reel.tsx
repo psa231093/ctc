@@ -30,11 +30,6 @@ export function SundayReel() {
         <h2 id="sunday-heading">FIRST, WE<br /><span className="outline-text">BUILD THE</span><br />PLAYGROUND.</h2>
         <p className="sunday-deck">The session starts before the first rep.</p>
         <p>Every Sunday, the team brings the bars to Oak Street Beach. Unload. Assemble. Train together. Take a look at the work—and the people—behind a CTC beach session.</p>
-        <ol className="sunday-steps" aria-label="From setup to session">
-          <li><span className="mono">01</span> Bring the bars.</li>
-          <li><span className="mono">02</span> Build the space.</li>
-          <li><span className="mono">03</span> Make it a session.</li>
-        </ol>
         <a href={club.instagram} target="_blank" rel="noopener noreferrer" className="text-link">Check the next session <Arrow diagonal /><span className="sr-only"> (Instagram, opens in a new tab)</span></a>
       </div>
       <figure className="sunday-film" data-reveal>

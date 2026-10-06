@@ -181,23 +181,33 @@ export function Footer() {
     </footer>
   );
 }
-export function PageIntro({
-  eyebrow,
-  title,
-  text,
-}: {
+export function DesktopPhoto({ name, alt, priority = false }: { name: string; alt: string; priority?: boolean }) {
+  return <picture>
+    <source media="(min-width: 901px)" srcSet={[480, 900, 1440].map(width => `/images/${name}-${width}.webp ${width}w`).join(", ")} sizes="(min-width: 1600px) 540px, 40vw" />
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'/%3E" width="1440" height="1800" alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} decoding="async" />
+  </picture>;
+}
+export function PageIntro({ eyebrow, title, text, image, caption, action }: {
   eyebrow: string;
   title: React.ReactNode;
   text: string;
+  image: { name: string; alt: string };
+  caption: string;
+  action: { href: string; label: string };
 }) {
   return (
-    <section className="page-intro section-pad">
-      <a className="breadcrumb mono" href="/">
-        CTC / HOME
-      </a>
-      <Label>{eyebrow}</Label>
-      <h1 data-reveal>{title}</h1>
-      <p className="intro-description">{text}</p>
+    <section className="page-intro page-intro-editorial section-pad">
+      <div className="intro-copy">
+        <a className="breadcrumb mono" href="/">CTC / HOME</a>
+        <Label>{eyebrow}</Label>
+        <h1 data-reveal>{title}</h1>
+        <p className="intro-description">{text}</p>
+        <a className="text-link intro-action" href={action.href}>{action.label}<Arrow /></a>
+      </div>
+      <figure className="intro-portrait">
+        <DesktopPhoto name={image.name} alt={image.alt} priority />
+        <figcaption><span className="mono">CHICAGO TRAINING CLUB</span><span>{caption}</span></figcaption>
+      </figure>
     </section>
   );
 }
