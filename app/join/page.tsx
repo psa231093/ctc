@@ -6,6 +6,10 @@ export const metadata = pageMetadata(
   "Join Chicago Training Club. Membership is free and all skill levels are welcome. Find current session details and answers for your first CTC training session.",
   "/join",
 );
+const weeklySessions = [
+  { day: "Sundays", place: "Oak Street Beach", time: "12:00 pm – 3:00 pm", address: "1000 N Lake Shore Dr", mapQuery: "Oak Street Beach, 1000 N Lake Shore Dr, Chicago, IL" },
+  { day: "Wednesdays", place: "Lake Shore Park", time: "6:00 pm – 8:00 pm", address: "808 N Lake Shore Dr", mapQuery: "Lake Shore Park, 808 N Lake Shore Dr, Chicago, IL" },
+];
 export default function JoinPage() {
   return (
     <main id="main">
@@ -25,8 +29,8 @@ export default function JoinPage() {
             New to calisthenics? New to Chicago? Just looking for people who get
             it? You have a place at Chicago Training Club.
           </p>
-          <ButtonLink href={club.instagram} external>
-            Find the next session
+          <ButtonLink href="#weekly-training">
+            See the weekly sessions
           </ButtonLink>
           <p className="join-note">
             Visit @chicagotrainingclub on Instagram for current session
@@ -41,6 +45,29 @@ export default function JoinPage() {
           />
           <div className="membership-tag">FREE TO JOIN. ALL LEVELS.</div>
         </div>
+      </section>
+      <section className="weekly-training section-pad" id="weekly-training" aria-labelledby="weekly-heading">
+        <div className="weekly-heading">
+          <Label>Two places to show up</Label>
+          <h2 id="weekly-heading">YOUR WEEK.<br />AT THE BARS.</h2>
+          <p>Warm up, work on your skills, and train together. All times are local to Chicago.</p>
+        </div>
+        <div className="weekly-grid">
+          {weeklySessions.map(session => (
+            <article className="weekly-session" key={session.day}>
+              <div className="weekly-session-copy">
+                <span className="mono weekly-day">{session.day}</span>
+                <h3>{session.place}</h3>
+                <p className="weekly-time">{session.time}</p>
+                <p className="weekly-plan">Warm up &amp; skills <span aria-hidden="true">/</span> Workout circuit</p>
+                <address>{session.address}<br />Chicago, IL</address>
+                <a className="text-link" href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(session.mapQuery)}`} target="_blank" rel="noopener noreferrer">Get directions<span className="sr-only"> to {session.place} (Google Maps, opens in a new tab)</span></a>
+              </div>
+              <iframe title={`Google Map: ${session.place}`} src={`https://www.google.com/maps?q=${encodeURIComponent(session.mapQuery)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+            </article>
+          ))}
+        </div>
+        <p className="weekly-updates">Check <a href={club.instagram} target="_blank" rel="noopener noreferrer">@chicagotrainingclub<span className="sr-only"> (opens in a new tab)</span></a> on Instagram for session updates before heading out.</p>
       </section>
       <section
         className="steps section-pad"

@@ -2910,7 +2910,7 @@ html {
 
 /* Dark desktop page heroes, with the existing mobile palette. */
 @media (min-width:901px) {
-  .page-intro-editorial, .join-page-hero { background:var(--ink); color:var(--paper); max-width:none; }
+  .page-intro-editorial, .join-page-hero { background:var(--ink); color:var(--paper); }
   .page-intro-editorial .breadcrumb, .join-page-hero .join-note { color:#b8bbae; }
   .page-intro-editorial .intro-description { color:#e0e1d8; }
   .page-intro-editorial .text-link:hover { color:white; }
@@ -2924,4 +2924,31 @@ html {
   #sessions .program-detail-image .photo { object-position:center; }
   .footer-navigation { grid-template-columns:max-content max-content; gap:0 26px; padding-bottom:20px; }
   .footer-navigation a { font-size:21px; line-height:1.15; min-height:44px; display:flex; align-items:center; }
+}
+
+.weekly-training { padding-block:72px; scroll-margin-top:100px; }
+.weekly-heading { max-width:680px; margin-bottom:36px; }
+.weekly-heading h2 { font-size:clamp(50px,5.5vw,80px); line-height:.95; margin-block:24px; }
+.weekly-heading > p { font-size:15px; line-height:1.7; max-width:470px; }
+.weekly-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.weekly-session { min-width:0; background:#e4e5db; }
+.weekly-session-copy { padding:30px; }
+.weekly-day { display:inline-block; padding:8px 12px; background:var(--ink); color:var(--paper); font-size:11px; text-transform:uppercase; }
+.weekly-session h3 { font-family:var(--display); font-size:clamp(36px,3.4vw,50px); line-height:1; text-transform:uppercase; margin:24px 0 16px; }
+.weekly-time { font-size:21px; font-weight:600; margin-bottom:14px; }
+.weekly-plan { font-size:13px; line-height:1.7; margin-bottom:20px; }
+.weekly-plan span { margin-inline:8px; }
+.weekly-session address { font-style:normal; font-size:14px; line-height:1.7; }
+.weekly-session .text-link { margin-top:15px; }
+.weekly-session iframe { display:block; width:100%; height:300px; border:0; }
+.weekly-updates { font-size:13px; line-height:1.8; margin-top:26px; }
+.weekly-updates a { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:700px) {
+  .weekly-training { padding-block:40px; }
+  .weekly-heading { margin-bottom:26px; }
+  .weekly-grid { grid-template-columns:1fr; gap:24px; }
+  .weekly-session-copy { padding:24px; }
+  .weekly-session h3 { font-size:39px; }
+  .weekly-session iframe { height:260px; }
+  .weekly-plan span { margin-inline:3px; }
 }
