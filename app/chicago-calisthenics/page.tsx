@@ -35,14 +35,11 @@ export default function TrainingPage() {
           id={program.id}
         >
           <div className="program-detail-image">
-            <picture>
-              {program.number === "01" && <source media="(max-width: 700px)" srcSet="/images/training-group-mobile-480.webp 480w, /images/training-group-mobile-768.webp 768w" sizes="100vw" />}
             <Photo
               name={program.image}
               alt={program.alt}
               priority={program.number === "01"}
             />
-            </picture>
           </div>
           <div className="program-detail-copy" data-reveal>
             <Label number={program.number}>{program.label}</Label>

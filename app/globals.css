@@ -2918,10 +2918,7 @@ html {
   .join-page-hero .button { background:var(--paper); color:var(--ink); border-color:var(--paper); }
   .join-page-hero .button:hover { background:white; }
 }
-.program-detail-image picture { display:block; width:100%; height:100%; }
 @media (max-width:700px) {
-  #sessions .program-detail-image { aspect-ratio:3/4; }
-  #sessions .program-detail-image .photo { object-position:center; }
   .footer-navigation { grid-template-columns:max-content max-content; gap:0 26px; padding-bottom:20px; }
   .footer-navigation a { font-size:21px; line-height:1.15; min-height:44px; display:flex; align-items:center; }
 }
@@ -2951,4 +2948,14 @@ html {
   .weekly-session h3 { font-size:39px; }
   .weekly-session iframe { height:260px; }
   .weekly-plan span { margin-inline:3px; }
+}
+
+.story-photo-label { display:none; }
+.story-hero > picture { display:block; width:100%; height:100%; }
+@media(max-width:700px) {
+  .story-hero { height:auto; aspect-ratio:3/4; }
+  .story-hero .photo { object-position:center; filter:none; }
+  .story-photo-label { display:block; position:absolute; top:20px; left:20px; right:20px; color:var(--ink); font-size:9px; line-height:1.7; letter-spacing:.04em; }
+  .story-hero .story-overlay { background:linear-gradient(transparent 73%,#0008); padding:20px; }
+  .story-overlay p { font-size:clamp(25px,7vw,34px); line-height:1; }
 }
