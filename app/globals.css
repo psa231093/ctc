@@ -2987,4 +2987,4 @@ html {
     will-change:transform,opacity;
   }
 }
-.section-label .bicep-icon { width:20px; height:20px; display:block; flex-shrink:0; }
+.section-label .label-dot { width:6px; height:6px; display:block; background:currentColor; border-radius:50%; }
