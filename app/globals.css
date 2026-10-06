@@ -2856,22 +2856,16 @@ html {
  .join-page-visual > .membership-tag { transform:rotate(-5deg); }
 }
 
-.full-film-dialog { position:fixed; inset:0; width:100vw; max-width:100vw; height:100dvh; max-height:100dvh; margin:0; padding:0; border:0; background:#10110f; color:var(--paper); }
-.full-film-dialog[open] { display:flex; flex-direction:column; }
-.full-film-dialog::backdrop { background:#000; }
-.full-film-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:calc(16px + env(safe-area-inset-top)) 20px 16px; }
-.full-film-toolbar .mono { font-size:10px; }
-.full-film-toolbar button,.full-film-dialog p button { color:inherit; background:none; min-height:44px; padding:10px; border:1px solid #6c7064; font-size:12px; }
-.full-film-dialog video { display:block; width:100%; flex:1; min-height:0; object-fit:contain; }
-.full-film-dialog > p { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 20px calc(16px + env(safe-area-inset-bottom)); font-size:9px; }
-.film-controls .full-film-trigger { min-width:0; padding:0 14px; }
-
 @media(max-width:700px) and (prefers-reduced-motion:no-preference) {
  .manifesto-remix .manifesto-aside { --photo-arrival:clamp(0,calc(var(--section-progress,0) * 2),1); }
  .manifesto-remix .manifesto-main-photo {
-   transform:translateX(calc((1 - var(--photo-arrival)) * -95px)) rotate(calc(-9deg + var(--photo-arrival) * 4deg));
+   transform:translate3d(calc((1 - var(--photo-arrival)) * -70px),0,0) rotate(calc(-9deg + var(--photo-arrival) * 4deg));
  }
  .manifesto-remix .manifesto-inset-photo {
-   transform:translateX(calc((1 - var(--photo-arrival)) * 95px)) rotate(calc(11deg - var(--photo-arrival) * 5deg));
+   transform:translate3d(calc((1 - var(--photo-arrival)) * 70px),0,0) rotate(calc(11deg - var(--photo-arrival) * 5deg));
  }
+}
+
+@media(max-width:700px) and (prefers-reduced-motion:no-preference) {
+ .manifesto-remix .manifesto-main-photo,.manifesto-remix .manifesto-inset-photo { will-change:transform; backface-visibility:hidden; }
 }
