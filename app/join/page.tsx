@@ -13,6 +13,9 @@ const weeklySessions = [
 export default function JoinPage() {
   return (
     <main id="main">
+      <link rel="preconnect" href="https://www.google.com" />
+      <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://maps.googleapis.com" crossOrigin="anonymous" />
       <section className="join-page-hero section-pad">
         <div>
           <Label>Your next rep starts here</Label>
@@ -63,7 +66,7 @@ export default function JoinPage() {
                 <address>{session.address}<br />Chicago, IL</address>
                 <a className="text-link" href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(session.mapQuery)}`} target="_blank" rel="noopener noreferrer">Get directions<span className="sr-only"> to {session.place} (Google Maps, opens in a new tab)</span></a>
               </div>
-              <iframe title={`Google Map: ${session.place}`} src={`https://www.google.com/maps?q=${encodeURIComponent(session.mapQuery)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+              <iframe title={`Google Map: ${session.place}`} src={`https://www.google.com/maps?q=${encodeURIComponent(session.mapQuery)}&output=embed`} loading="eager" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
             </article>
           ))}
         </div>

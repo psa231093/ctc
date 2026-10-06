@@ -2942,7 +2942,7 @@ html {
 .weekly-plan span { margin-inline:8px; }
 .weekly-session address { font-style:normal; font-size:14px; line-height:1.7; }
 .weekly-session .text-link { margin-top:15px; }
-.weekly-session iframe { display:block; width:100%; height:300px; border:0; }
+.weekly-session iframe { display:block; width:100%; height:300px; border:0; background:#f0f0f0; color-scheme:light; filter:invert(.92) hue-rotate(180deg) saturate(.7); }
 .weekly-updates { font-size:13px; line-height:1.8; margin-top:26px; }
 .weekly-updates a { text-decoration:underline; text-underline-offset:3px; }
 @media(max-width:700px) {
