@@ -2823,7 +2823,6 @@ html {
 }
 
 .playback-icon { width:18px; height:18px; flex-shrink:0; }
-.practice-switcher { display:none; }
 .gallery-pagination { display:flex; gap:0; }
 .gallery-pagination button { width:32px; height:44px; border:0; background:none; display:grid; place-items:center; }
 .gallery-pagination button span { width:6px; height:6px; background:currentColor; opacity:.25; border-radius:50%; transition:width .25s,opacity .25s; }
@@ -2834,9 +2833,6 @@ html {
  .manifesto-remix .manifesto-copy h2 > span { display:block; margin-top:5px; }
  .manifesto-remix .manifesto-aside { order:1; }
  .manifesto-remix .manifesto-copy { order:2; }
- .practice-switcher { display:flex; position:absolute; z-index:2; left:12px; right:12px; top:12px; background:#111c; padding:4px; gap:4px; }
- .practice-switcher button { flex:1; min-height:44px; background:transparent; color:#fff; font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
- .practice-switcher button[aria-pressed="true"] { background:var(--paper); color:var(--ink); }
  .community-remix .gallery-strip { scroll-snap-type:x mandatory; }
  .community-remix .gallery-strip > figure { scroll-snap-align:start; }
  .gallery-controls { flex-wrap:wrap; gap:8px; }
