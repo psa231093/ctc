@@ -50,29 +50,42 @@ export function ClubFilm() {
     ).connection;
     autoplayAllowed.current = !reduced.matches && !connection?.saveData;
     let frame = 0;
-    const update = () => {
+    let sampleNeeded = true;
+    let current = 0;
+    let target = 0;
+    let initialized = false;
+    let lastTime = 0;
+    const update = (time: number) => {
       frame = 0;
       if (reduced.matches) {
         root.style.setProperty("--film-progress", "1");
+        lastTime = 0;
         return;
       }
-      const top = root.getBoundingClientRect().top;
-      const progress = Math.max(
-        0,
-        Math.min(
-          1,
-          (window.innerHeight * 0.72 - top) / (window.innerHeight * 0.72 - 84),
-        ),
-      );
-      root.style.setProperty("--film-progress", progress.toFixed(4));
+      if (sampleNeeded) {
+        const top = root.getBoundingClientRect().top;
+        const viewportHeight = window.innerHeight;
+        target = Math.max(0, Math.min(1, (viewportHeight * 0.72 - top) / Math.max(1, viewportHeight * 0.72 - 84)));
+        sampleNeeded = false;
+        if (!initialized) { current = target; initialized = true; }
+      }
+      const elapsed = lastTime ? Math.min(time - lastTime, 50) : 16;
+      lastTime = time;
+      const difference = target - current;
+      const settling = Math.abs(difference) > 0.0001;
+      current = settling ? current + difference * (1 - Math.exp(-elapsed / 85)) : target;
+      root.style.setProperty("--film-progress", current.toFixed(5));
+      if (settling) frame = requestAnimationFrame(update);
+      else lastTime = 0;
     };
     const onScroll = () => {
+      sampleNeeded = true;
       if (!frame) frame = requestAnimationFrame(update);
     };
     const onPreference = () => {
       autoplayAllowed.current = !reduced.matches && !connection?.saveData;
       if (!autoplayAllowed.current) element.pause();
-      update();
+      onScroll();
     };
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -99,7 +112,7 @@ export function ClubFilm() {
     window.addEventListener("resize", onScroll);
     document.addEventListener("visibilitychange", onVisibility);
     reduced.addEventListener("change", onPreference);
-    update();
+    onScroll();
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frame);
