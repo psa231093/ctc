@@ -31,7 +31,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body>
+      <body id="top">
         <a className="skip-link" href="#main">
           Skip to content
         </a>

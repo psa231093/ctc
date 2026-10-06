@@ -24,7 +24,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("keydown", handler);
   }, [open]);
   return (
-    <header className="site-header" id="top">
+    <header className="site-header">
       <a href="/" className="brand" aria-label="Chicago Training Club home">
         <img
           src="/ctc-wordmark.svg"
