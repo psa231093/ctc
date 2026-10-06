@@ -2976,3 +2976,14 @@ html {
 
 .film-poster, .film-poster img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 @media(max-width:700px) { .film-poster img { object-fit:contain; } }
+
+@media(max-width:700px) and (prefers-reduced-motion:no-preference) {
+  .join-copy[data-kinetic] > .chicago-star {
+    --star-arrival:clamp(0,calc(var(--section-progress, 0) * 3 - .2),1);
+    opacity:var(--star-arrival);
+    transform:translate3d(calc((1 - var(--star-arrival)) * 38px),0,0)
+      rotate(calc((1 - var(--star-arrival)) * -45deg))
+      scale(calc(.7 + var(--star-arrival) * .3));
+    will-change:transform,opacity;
+  }
+}

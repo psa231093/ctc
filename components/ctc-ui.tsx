@@ -105,7 +105,7 @@ export function JoinBanner() {
           <br />
           AT THE BARS.
         </h2>
-        <div className="join-copy">
+        <div className="join-copy" data-kinetic>
           <Star />
           <p>
             There’s a place for you at the bars.
