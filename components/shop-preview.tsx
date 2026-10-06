@@ -50,7 +50,7 @@ export function ShopPreview() {
               <h3>{product.name}</h3>
               <span className="mono">{product.material}</span>
               <span className="product-link">
-                View in the shop <span aria-hidden="true">↗</span>
+                View in the shop
                 <span className="sr-only"> (opens in a new tab)</span>
               </span>
             </div>

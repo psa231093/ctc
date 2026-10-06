@@ -64,7 +64,7 @@ export function SiteHeader() {
           rel="noopener noreferrer"
           onClick={() => setOpen(false)}
         >
-          The shop <span aria-hidden="true">↗</span>
+          The shop
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
         <a

@@ -111,7 +111,7 @@ export function JoinBanner() {
     <section className="join-banner section-pad" aria-labelledby="join-heading">
       <div className="join-top">
         <Label>Come as you are. Put in the work.</Label>
-        <span className="mono">CHICAGO, IL ↗</span>
+        <span className="mono">CHICAGO, IL</span>
       </div>
       <div className="join-main" data-reveal>
         <h2 id="join-heading">
@@ -147,7 +147,7 @@ export function Footer() {
         </a>
         <p>Calisthenics. Community. Chicago.</p>
         <a className="text-link" href="#top">
-          Back to top <span aria-hidden="true">↑</span>
+          Back to top
         </a>
       </div>
       <nav className="footer-navigation" aria-label="Footer navigation">
@@ -161,13 +161,13 @@ export function Footer() {
         <span>© {new Date().getFullYear()} Chicago Training Club</span>
         <div>
           <a href={club.store} target="_blank" rel="noopener noreferrer">
-            Shop ↗<span className="sr-only"> (opens in a new tab)</span>
+            Shop<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a href={club.instagram} target="_blank" rel="noopener noreferrer">
-            Instagram ↗<span className="sr-only"> (opens in a new tab)</span>
+            Instagram<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a href={club.tiktok} target="_blank" rel="noopener noreferrer">
-            TikTok ↗<span className="sr-only"> (opens in a new tab)</span>
+            TikTok<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a href="/join">Get in touch</a>
         </div>

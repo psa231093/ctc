@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { photos } from "@/lib/ctc";
 import { Arrow, Photo } from "./ctc-ui";
 export function Gallery({ full = false }: { full?: boolean }) {
+  const [slide, setSlide] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
@@ -26,7 +27,13 @@ export function Gallery({ full = false }: { full?: boolean }) {
     );
   return (
     <>
-      <div className={full ? "gallery-grid" : "gallery-strip"} ref={scroller}>
+      <div className={full ? "gallery-grid" : "gallery-strip"} ref={scroller} onScroll={(event) => {
+        if (full) return;
+        const container = event.currentTarget;
+        const cards = Array.from(container.children) as HTMLElement[];
+        const nearest = cards.reduce((best, card, index) => Math.abs(card.offsetLeft - cards[0].offsetLeft - container.scrollLeft) < Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - container.scrollLeft) ? index : best, 0);
+        setSlide(nearest);
+      }}>
         {(full ? photos : photos.slice(0, 5)).map((photo, i) => (
           <figure key={photo.image}>
             <button
@@ -58,7 +65,10 @@ export function Gallery({ full = false }: { full?: boolean }) {
       </div>
       {!full && (
         <div className="gallery-controls">
-          <span className="mono tiny">REAL PEOPLE. REAL PROGRESS.</span>
+          <span className="mono tiny">SWIPE THROUGH THE CLUB / {slide + 1} OF 5</span>
+          <div className="gallery-pagination" role="group" aria-label="Choose a community photograph">
+            {photos.slice(0, 5).map((photo, index) => <button key={photo.image} aria-label={`Show photograph ${index + 1}`} aria-pressed={slide === index} onClick={() => { const container = scroller.current; if (!container) return; const cards = Array.from(container.children) as HTMLElement[]; container.scrollTo({left: cards[index].offsetLeft - cards[0].offsetLeft, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth"}); }}><span /></button>)}
+          </div>
           <div>
             <button
               aria-label="Scroll photographs left"

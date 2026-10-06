@@ -139,11 +139,11 @@ export default function Home() {
         </div>
         <div className="manifesto-copy" data-reveal>
           <h2 id="manifesto-heading">
-            MORE THAN
-            <br />A WORKOUT.
+            MORE THAN{" "}
+            <br />A WORKOUT.{" "}
             <br />
             <span>
-              A WAY TO
+              A WAY TO{" "}
               <br className="mobile-break" /> SHOW UP.
             </span>
           </h2>

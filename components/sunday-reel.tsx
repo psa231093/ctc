@@ -40,8 +40,8 @@ export function SundayReel() {
       <figure className="sunday-film" data-reveal>
         <div className="sunday-video-frame">
           <video ref={video} src={started ? "/video/sunday-at-oak-street.mp4" : undefined} poster="/images/sunday-reel-poster.webp" controls={started} playsInline preload="none" aria-label="Setting up the bars and training at Oak Street Beach" aria-describedby="sunday-caption" onLoadedData={() => { if (started) video.current?.play().catch(() => {}); }} />
-          {!started && <button className="sunday-play" onClick={() => setStarted(true)} aria-label="Play Sunday setup reel"><span className="sunday-play-icon" aria-hidden="true">▶</span><span className="mono">WATCH THE SUNDAY RITUAL<br />01:06</span></button>}
-          {started && <a className="sunday-video-fallback" href="/video/sunday-at-oak-street.mp4" target="_blank" rel="noopener noreferrer">Open reel <span aria-hidden="true">↗</span><span className="sr-only"> in a new tab</span></a>}
+          {!started && <button className="sunday-play" onClick={() => setStarted(true)} aria-label="Play Sunday setup reel"><span className="sunday-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span><span className="mono">WATCH THE SUNDAY RITUAL<br />01:06</span></button>}
+          {started && <a className="sunday-video-fallback" href="/video/sunday-at-oak-street.mp4" target="_blank" rel="noopener noreferrer">Open reel<span className="sr-only"> in a new tab</span></a>}
         </div>
         <figcaption id="sunday-caption"><span className="mono">THE SUNDAY RITUAL</span><span>From loading the bars to a session on the sand.</span></figcaption>
       </figure>

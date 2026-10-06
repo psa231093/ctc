@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Arrow } from "./ctc-ui";
+
 
 export function ClubFilm() {
   const section = useRef<HTMLElement>(null);
@@ -175,7 +175,7 @@ export function ClubFilm() {
                 onClick={togglePlayback}
                 aria-label={playing ? "Pause club film" : "Play club film"}
               >
-                <span aria-hidden="true">{playing ? "Ⅱ" : "▶"}</span>
+                <svg className="playback-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">{playing ? <path d="M6 5h4v14H6zm8 0h4v14h-4z" /> : <path d="M8 5v14l11-7z" />}</svg>
                 {playing ? "Pause film" : "Play film"}
               </button>
               <a
@@ -184,7 +184,7 @@ export function ClubFilm() {
                 rel="noopener noreferrer"
                 aria-label="Open full club film in a new tab"
               >
-                <Arrow diagonal />
+                <span className="mono">FULL FILM</span>
               </a>
             </div>
           </div>

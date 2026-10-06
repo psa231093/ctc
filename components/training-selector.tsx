@@ -9,6 +9,9 @@ export function TrainingSelector() {
   return (
     <div className="training-selector">
       <div className="training-image">
+        <div className="practice-switcher" role="group" aria-label="Choose a training discipline">
+          {programs.map((program, index) => <button key={program.id} aria-pressed={active === index} onClick={() => { setActive(index); setExpanded(index); }}>{index === 0 ? "Train" : index === 1 ? "Balance" : "Explore"}</button>)}
+        </div>
         <Photo
           key={programs[active].id}
           name={programs[active].image}
