@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 
 const base = process.env.TEST_ORIGIN || "http://127.0.0.1:5173";
+const canonicalOrigin = process.env.CTC_SITE_URL || "https://www.chicagotrainingclub.com";
+const indexable = process.env.CTC_INDEXABLE === "true";
 const paths = [
   "/",
   "/the-club",
@@ -28,11 +30,11 @@ for (const path of paths) {
   const canonical = document.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   assert.equal(
     new URL(canonical).href,
-    new URL("https://www.chicagotrainingclub.com" + path).href,
+    new URL(path, canonicalOrigin).href,
     `Canonical: ${path}`,
   );
   assert.match(document, /name="description"[^>]+content="[^"]{60,}"/);
-  assert.match(document, /name="robots"[^>]+content="noindex, nofollow"/);
+  assert.ok(document.includes(`name="robots" content="${indexable ? "index, follow" : "noindex, nofollow"}"`), `Robots: ${path}`);
   assert.ok(!document.includes("Starter Project"));
   for (const tag of document.matchAll(/<img\b[^>]*>/g)) {
     assert.match(tag[0], /alt="[^"]*"/);
@@ -88,11 +90,12 @@ for (const size of [720, 1280]) {
   assert.ok(response.status === 206 ? bytes === 1024 : bytes > 1000000);
 }
 assert.equal((await fetch(base + "/video/sunday-at-oak-street.mp4", {method:"HEAD"})).status, 200);
-assert.match(robots, /Disallow: \//);
+assert.match(robots, indexable ? /Allow: \// : /Disallow: \//);
+if (indexable) assert.ok(robots.includes(`${canonicalOrigin}/sitemap.xml`));
 const sitemap = await (await fetch(base + "/sitemap.xml")).text();
 for (const path of paths)
-  assert.ok(sitemap.includes("https://www.chicagotrainingclub.com" + path));
+  assert.ok(sitemap.includes(new URL(path, canonicalOrigin).href));
 assert.equal((await fetch(base + "/definitely-not-a-page")).status, 404);
 console.log(
-  `PASS ${assets.size + 4} assets, preview crawl guard, 5 sitemap URLs and genuine 404`,
+  `PASS ${assets.size + 4} assets, ${indexable ? "public indexing" : "preview crawl guard"}, 5 sitemap URLs and genuine 404`,
 );

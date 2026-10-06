@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 export const club = {
   store: "https://f01e77-28.myshopify.com/",
   name: "Chicago Training Club",
-  url: "https://www.chicagotrainingclub.com",
+  url: (process.env.CTC_SITE_URL || "https://www.chicagotrainingclub.com").replace(/\/$/, ""),
   instagram: "https://www.instagram.com/chicagotrainingclub/",
   tiktok: "https://www.tiktok.com/@chicagotrainingclub",
   presentation: "https://view.genially.com/697f74e9bb78a059e35f09d3",
 };
-// Enable only after public-domain cutover. Private previews must not be indexed.
+// Opt in on the public production host; private previews remain non-indexable.
 export const indexable = process.env.CTC_INDEXABLE === "true";
 export function pageMetadata(
   title: string,
