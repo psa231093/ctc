@@ -10,6 +10,8 @@ import { TrainingSelector } from "@/components/training-selector";
 import { Gallery } from "@/components/gallery";
 import { ClubFilm } from "@/components/club-film";
 import { ShopPreview } from "@/components/shop-preview";
+import { SundayReel } from "@/components/sunday-reel";
+import { InstagramPreview } from "@/components/instagram-preview";
 import { club, pageMetadata } from "@/lib/ctc";
 export const metadata = pageMetadata(
   "Chicago Calisthenics & Community",
@@ -186,6 +188,7 @@ export default function Home() {
         </div>
         <TrainingSelector />
       </section>
+      <SundayReel />
       <section
         className="community-section community-remix"
         aria-labelledby="community-heading"
@@ -207,6 +210,7 @@ export default function Home() {
         <Gallery />
       </section>
       <ShopPreview />
+      <InstagramPreview />
       <JoinBanner />
     </main>
   );

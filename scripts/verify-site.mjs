@@ -56,6 +56,12 @@ for (const path of paths) {
     for (const handle of ["research-hoodie", "training-pant", "ctc-trinity-system-chalk-tee"])
       assert.ok(document.includes(`https://f01e77-28.myshopify.com/products/${handle}`));
     assert.ok(!document.match(/<header[\s\S]*?<\/header>/)?.[0].includes("CHICAGO BUILT"));
+    assert.equal((document.match(/<video\b/g) || []).length, 2, "Both homepage films render");
+    assert.ok([...document.matchAll(/<video\b[^>]*>/g)].every(([tag]) => !/\ssrc=/.test(tag)), "No initial video downloads");
+    assert.match(document, /sunday-heading/);
+    for (const id of ["DPy6hq6jWiE", "DMsubtnOg4j", "DdRb5d9jvuw", "DZaUQ0NjugP"])
+      assert.ok(document.includes(`https://www.instagram.com/p/${id}/?img_index=1`));
+    assert.equal((document.match(/class="instagram-post"/g) || []).length, 4);
   }
   console.log(
     `PASS ${path}: server HTML, title, H1, canonical, metadata, image attributes`,
@@ -78,6 +84,7 @@ for (const size of [720, 1280]) {
   const bytes = (await response.arrayBuffer()).byteLength;
   assert.ok(response.status === 206 ? bytes === 1024 : bytes > 1000000);
 }
+assert.equal((await fetch(base + "/video/sunday-at-oak-street.mp4", {method:"HEAD"})).status, 200);
 assert.match(robots, /Disallow: \//);
 const sitemap = await (await fetch(base + "/sitemap.xml")).text();
 for (const path of paths)
