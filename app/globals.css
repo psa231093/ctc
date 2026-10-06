@@ -2720,23 +2720,24 @@ html {
   }
 }
 /* A portrait field note between the practice and the people. */
-.sunday-section { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr); gap:9vw; align-items:center; background:#e4e5db; border-top:1px solid var(--line); padding-top:90px; padding-bottom:90px; }
-.sunday-copy h2 { font-family:var(--display); font-size:clamp(52px,6.8vw,108px); line-height:.91; letter-spacing:-.025em; margin:30px 0; }
+.sunday-section { background:#e4e5db; border-top:1px solid var(--line); padding-top:56px; padding-bottom:56px; }
+.sunday-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,320px); gap:36px; align-items:center; max-width:860px; margin-inline:auto; }
+.sunday-copy h2 { font-family:var(--display); font-size:clamp(52px,7.5vw,94px); line-height:.91; letter-spacing:-.025em; margin:24px 0; }
 .sunday-copy .outline-text { -webkit-text-stroke-color:var(--ink); }
-.sunday-copy > p { max-width:460px; font-size:15px; line-height:1.75; }
-.sunday-copy .sunday-deck { font-weight:600; font-size:20px; margin-bottom:14px; }
-.sunday-steps { list-style:none; padding:0; margin:28px 0; max-width:460px; }
-.sunday-steps li { display:flex; align-items:center; gap:25px; padding:13px 0; border-top:1px solid #b8bbae; font-size:14px; }
+.sunday-copy > p { max-width:none; font-size:14px; line-height:1.7; }
+.sunday-copy .sunday-deck { font-weight:600; font-size:18px; margin-bottom:10px; }
+.sunday-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; list-style:none; padding:0; margin:24px 0; }
+.sunday-steps li { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:13px 0 0; border-top:1px solid #b8bbae; font-size:12px; }
 .sunday-steps .mono { font-size:10px; }
 .sunday-copy > .text-link { font-size:13px; }
-.sunday-film { width:100%; max-width:390px; justify-self:center; margin:0; transform:rotate(2deg); }
+.sunday-film { width:100%; justify-self:start; margin:0; }
 .sunday-video-frame { position:relative; aspect-ratio:9/16; background:#151713; box-shadow:12px 14px 0 #c6c9bb; }
 .sunday-video-frame video { display:block; width:100%; height:100%; object-fit:contain; }
 .sunday-play { position:absolute; inset:0; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px; background:linear-gradient(transparent,#0003,#0007); width:100%; border:0; cursor:pointer; }
 .sunday-play-icon { display:grid; place-items:center; width:76px; height:76px; border:1px solid #fffc; border-radius:50%; background:#14161475; padding-left:4px; font-size:21px; transition:transform .25s; }
 .sunday-play:hover .sunday-play-icon { transform:scale(1.08); }
 .sunday-play .mono { font-size:10px; line-height:1.9; }
-.sunday-film figcaption { margin-top:25px; display:flex; justify-content:space-between; gap:20px; align-items:start; }
+.sunday-film figcaption { margin-top:18px; display:flex; justify-content:space-between; gap:20px; align-items:start; }
 .sunday-film figcaption .mono { font-size:8px; white-space:nowrap; }
 .sunday-film figcaption > span:last-child { font-size:10px; max-width:150px; text-align:right; line-height:1.5; }
 .sunday-video-fallback { position:absolute; right:14px; top:14px; font-size:10px; background:#111b; color:white; padding:8px 10px; }
@@ -2750,12 +2751,24 @@ html {
 .instagram-post:hover img { transform:scale(1.04); }
 .instagram-post-caption { position:absolute; inset:auto 0 0; display:flex; justify-content:space-between; align-items:center; padding:28px 14px 12px; color:white; background:linear-gradient(transparent,#0009); font-size:8px; }
 .instagram-post-caption .arrow { width:19px; height:19px; }
+@media (min-width:701px) and (max-width:950px) {
+  .sunday-layout { grid-template-columns:minmax(0,1fr) 280px; gap:28px; }
+  .sunday-copy h2 { font-size:6.8vw; }
+}
 @media (max-width:700px) {
-  .sunday-section { grid-template-columns:minmax(0,1fr); gap:35px; padding-top:45px; padding-bottom:55px; }
-  .sunday-copy h2 { font-size:15.3vw; margin:25px 0; }
+  .sunday-section { padding-top:36px; padding-bottom:40px; }
+  .sunday-layout { grid-template-columns:minmax(0,1fr); gap:18px; max-width:420px; }
+  .sunday-copy { display:contents; }
+  .sunday-copy > .section-label { order:0; }
+  .sunday-copy h2 { order:1; font-size:15.3vw; margin:0 0 4px; }
+  .sunday-film { order:2; }
+  .sunday-copy > .sunday-deck { order:3; margin-top:8px; margin-bottom:0; }
+  .sunday-copy > p { order:4; }
+  .sunday-steps { order:5; margin:0; gap:10px; }
+  .sunday-copy > .text-link { order:6; margin-top:4px; }
   .sunday-copy .sunday-deck { font-size:17px; }
   .sunday-copy > p { font-size:13px; }
-  .sunday-film { width:90%; max-width:340px; transform:none; }
+  .sunday-film { width:100%; max-width:340px; justify-self:center; }
   .sunday-video-frame { box-shadow:8px 9px 0 #c6c9bb; }
   .instagram-section { padding-top:40px; padding-bottom:40px; }
   .instagram-heading { display:block; }

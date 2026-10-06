@@ -24,7 +24,8 @@ export function SundayReel() {
 
   return (
     <section className="sunday-section section-pad" aria-labelledby="sunday-heading">
-      <div className="sunday-copy" data-reveal>
+      <div className="sunday-layout">
+      <div className="sunday-copy">
         <Label>Behind the session / Oak Street Beach</Label>
         <h2 id="sunday-heading">FIRST, WE<br /><span className="outline-text">BUILD THE</span><br />PLAYGROUND.</h2>
         <p className="sunday-deck">The session starts before the first rep.</p>
@@ -44,6 +45,7 @@ export function SundayReel() {
         </div>
         <figcaption id="sunday-caption"><span className="mono">THE SUNDAY RITUAL</span><span>From loading the bars to a session on the sand.</span></figcaption>
       </figure>
+      </div>
     </section>
   );
 }
